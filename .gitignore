@@ -1,0 +1,11 @@
+.vscode/
+.cache/
+.gradle/
+.idea/
+.classpath
+.project
+.settings/
+build/
+logs/
+node_modules/
+dist/

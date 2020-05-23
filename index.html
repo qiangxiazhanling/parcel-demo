@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <title>index</title>
+</head>
+
+<body>
+  <header id="navbar">
+    <div class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand ">
+        标题
+      </a>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Index<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/page/home.html">home</a>
+          </li>
+        </ul>
+        <button class="btn btn-outline-success my-2 my-sm-0">登录</button>
+      </div>
+    </div>
+  </header>
+
+
+  <div id="body" class="container mt-3">
+    <div class="alert alert-danger">
+      未加入图标库
+    </div>
+    <div class="alert alert-warning">
+      编写登录页面！
+    </div>
+    <h1>简介</h1>
+    <hr />
+    <p>
+      项目基于 parcel 构建, 使用 bootstrap 和 jquery. 具体引入方式与页面基础结构查看<span class="text-primary">/page/home.html</span>的代码注释,项目启动后编辑代码会自动加载无需刷新页面
+    </p>
+    <h1>技术文档</h1>
+    <hr />
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">库名</th>
+          <th scope="col">作用</th>
+          <th scope="col">文档地址</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>parcel</td>
+          <td>构建工具提供开发服务器和热加载</td>
+          <td>
+            <a href="https://www.parceljs.cn/getting_started.html">
+              https://www.parceljs.cn/getting_started.html
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>bootstrap</td>
+          <td>提供样式</td>
+          <td>
+            <a href="https://v4.bootcss.com/docs/getting-started/introduction/">
+              https://v4.bootcss.com/docs/getting-started/introduction/
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>jquery</td>
+          <td>这个库封装大部分原生js操作用起来比较方便</td>
+          <td>
+            <a href="https://www.w3school.com.cn/jquery/index.asp">
+              https://www.w3school.com.cn/jquery/index.asp
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h1>项目结构</h1>
+    <hr />
+    <p>
+      <span class="text-info">page</span>
+      文件夹存放页面,文件夹下的
+      <span class="text-primary">home.html</span>
+      页面,
+      <span class="text-warning">home.js</span>
+      是页面配套的js文件</p>
+    <p><span class="text-primary">index.html</span>是首页,<span class="text-warning">index.js</span>是首页配套js文件</p>
+    <p><span class="text-success">style.css</span>是自定义样式</p>
+    <p>其他的文件暂时不用了解 </p>
+  </div>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.min.js"
+  integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="./index.js"></script>
+
+</html>
