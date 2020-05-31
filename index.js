@@ -5,3 +5,5 @@ import('./src/components/navbar.html').then(html => {
   // 设置为当前页面为高亮
   document.getElementById('nav-index').classList.add('active')
 })
+
+import('./src/page/movieDetail')

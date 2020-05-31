@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="referrer" content="never">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- 引入 bootstrap-->
   <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -20,17 +21,44 @@
 
   <!-- 页面内容 -->
   <div id="body" class="container">
-    <div class="alert alert-danger">
-      未加入图标库
+    <div class="row">
+      <div class="col">
+        <h2>
+          <span id="title"></span>
+          <span id="original_title"></span>
+          <span id="year" class="text-muted"></span>
+        </h2>
+      </div>
     </div>
-    <div class="alert alert-danger">
-      主题切换?
+    <div class="row mt-3">
+      <div class="col">
+        <div class="pull-left">
+          <img class="shadow-lg rounded" id="cover" style="height: 307.45px;" />
+        </div>
+        <div style="padding-left:230px;">
+          <span id="info">
+           
+          </span>
+          <hr />
+          <h1>
+            评分:<span id="average" class="text-warning"></span>
+          </h1>
+          <hr />
+        </div>
+        <h5>剧情简介:</h5>
+        <span id="summary">
+        </span>
+      </div>
     </div>
-    <div class="alert alert-warning">
-      编写登录页面
+    <div class="row mt-3">
+      <div class="col">
+
+      </div>
     </div>
-    <div class="alert alert-warning">
-      设计列表页
+    <div class="text-center" id="loading">
+      <div class="spinner-border text-primary mx-auto" style="width: 3rem; height: 3rem;">
+        <span class="sr-only">Loading...</span>
+      </div>
     </div>
   </div>
 
@@ -47,7 +75,7 @@
   integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 <!-- 引入 自定义js-->
-<script src="./todo.js"></script>
+<script src="./movieDetail.js"></script>
 
 
 </html>

@@ -6,6 +6,7 @@ body {
   padding-top: 5rem;
   padding-bottom: 3rem;
   color: #5a5a5a;
+
 }
 
 
@@ -92,4 +93,27 @@ body {
 
 hr {
   border-top: 1px solid rgba(246, 251, 255, 0.1);
+}
+
+.form-control-dark {
+  color: #fff;
+  background-color: rgba(255, 255, 255, .1);
+  border-color: rgba(255, 255, 255, .1);
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+.movie-summary {
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
 }
