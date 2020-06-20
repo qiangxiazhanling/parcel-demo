@@ -117,3 +117,11 @@ hr {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
 }
+
+.form-control:focus {
+  color: #fff;
+  outline: 0;
+  border-color:#495057;
+  background-color: #495057;
+  box-shadow: 0 0 0 .2rem rgba(13,110,253,.25);
+}

@@ -15,7 +15,7 @@ const movieData = callback => {
     callback(item)
   } else {
     // 请求豆瓣的api
-    fetch(`https://douban-api.uieee.com/v2/movie/subject/${movieId}?apikey=0df993c66c0c636e29ecbb5344252a4a`)
+    fetch(`/v2/movie/subject/${movieId}?apikey=0df993c66c0c636e29ecbb5344252a4a`)
       .then(res => res.json())
       .then(res => {
         // 从请求结果中获取需要的数据

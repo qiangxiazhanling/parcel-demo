@@ -8,7 +8,8 @@ const movieData = (start,count, callback) => {
   // 显示加载标记
   document.getElementById('loading').style.display=''
   // 请求豆瓣的api
-  fetch(`https://douban-api.uieee.com/v2/movie/top250/?apikey=0df993c66c0c636e29ecbb5344252a4a&count=${count}&start=${start}`)
+  
+  fetch(`/v2/movie/top250?apikey=0b2bdeda43b5688921839c8ecb20399b&start=${start}&count=${count}`)
     .then(res => res.json())
     .then(res => {
       // 从请求结果中获取需要的数据
@@ -22,10 +23,6 @@ const movieData = (start,count, callback) => {
         year: item.year,
         image: item.images.small
       })).forEach(item => {
-        
-        //处理分页
-        callback(res.total);
-
         // 加载数据到页面
         document.getElementById('movie-view').insertAdjacentHTML('beforeend',
           `<a href="/src/page/movieDetail.html?id=${item.id}">      
@@ -44,13 +41,14 @@ const movieData = (start,count, callback) => {
             </div>
           </a>`)
       })
+      callback(res.total);
       // 显示隐藏标记
       document.getElementById('loading').style.display='none'
     })
 }
 
 // 当前已加载数据
-let nowStart = 0
+let nowStart = 1
 // 数据总数
 let total = 0
 
@@ -60,10 +58,10 @@ window.onscroll = function () {
   let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
   let clientHeight = window.innerHeight || Math.min(document.documentElement.clientHeight, document.body.clientHeight)
   if (clientHeight + scrollTop >= scrollHeight) {
-    if (total > nowStart+12) {
-      nowStart+=12
+    if (total > nowStart+10) {
+      nowStart+=10
       // 滚动到低时加载更多数据
-      movieData(nowStart,12,_total => {
+      movieData(nowStart,10,_total => {
         total = _total
       })
     }
@@ -72,6 +70,6 @@ window.onscroll = function () {
 
 
 // 加载页面初始数据
-movieData(nowStart,12,_total => {
+movieData(nowStart,10,_total => {
   total = _total
 })
