@@ -6,25 +6,25 @@
   <meta name="referrer" content="never">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- 引入 bootstrap-->
-  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
   <!-- 引入 自定义样式-->
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="./style.css">
   <title>home</title>
 </head>
 
 <body class="bg-dark text-white">
 
   <!-- 页面导航栏-->
-  <header id="navbar" ></header>
+  <header id="navbar">
+
+  </header>
+
   <!-- 页面内容 -->
   <div id="body" class="container">
-    <input id ="search" class="form-control form-control-dark w-100" type="text" placeholder="输入关键词"/>
-    <Table>
-      <tbody id="tbody">
-      </tbody>
-    </Table>
+    <div class="row" id="movie-view">
+    </div>
     <div class="text-center" id="loading">
-      <div class="spinner-border mt-5 text-primary mx-auto" style="width: 3rem; height: 3rem;" >
+      <div class="spinner-border text-primary mx-auto" style="width: 3rem; height: 3rem;" >
         <span class="sr-only">Loading...</span>
       </div>
     </div>
@@ -35,13 +35,7 @@
 </body>
 
 <!-- 引入 自定义js-->
-<script src="./torrent.js"></script>
+<script src="./movie.js"></script>
 
-<script>
-  $('search').on('click', event => {
-  console.info('xxx')
-})
-
-</script>
 
 </html>

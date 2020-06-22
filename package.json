@@ -4,16 +4,21 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "parcel watch index.html ./src/page/*.html --target electron --bundle-node-modules --public-url .",
+    "start": "parcel watch ./src/* --no-hmr  --public-url ./",
     "client": "electron dist/index.html"
   },
+  "browserslist": [
+    "Chrome > 83"
+  ],
   "devDependencies": {
-    "parcel-bundler": "^1.12.4",
     "bootstrap": "^5.0.0-alpha1",
+    "marked": "^1.1.0",
+    "parcel-bundler": "^1.12.4",
     "popper.js": "^1.16.0"
   },
   "dependencies": {
-
-    "electron": "^9.0.4"
+    "dhtspider": "^0.1.0",
+    "electron": "^9.0.4",
+    "jquery": "^3.5.1"
   }
 }

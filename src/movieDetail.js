@@ -1,7 +1,7 @@
-import('../components/navbar.html').then(html => {
-  document.getElementById('navbar').innerHTML = html
-  document.getElementById('nav-movie').classList.add('active')
-})
+import html from './components/navbar.html'
+
+document.getElementById('navbar').innerHTML = html
+document.getElementById('nav-movie').classList.add('active')
 
 
 // 获取url中的问号传值
@@ -15,7 +15,7 @@ const movieData = callback => {
     callback(item)
   } else {
     // 请求豆瓣的api
-    fetch(`/v2/movie/subject/${movieId}?apikey=0df993c66c0c636e29ecbb5344252a4a`)
+    fetch(`https://api.douban.com/v2/movie/subject/${movieId}?apikey=0df993c66c0c636e29ecbb5344252a4a`)
       .then(res => res.json())
       .then(res => {
         // 从请求结果中获取需要的数据
