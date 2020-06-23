@@ -125,3 +125,10 @@ hr {
   background-color: #495057;
   box-shadow: 0 0 0 .2rem rgba(13,110,253,.25);
 }
+
+.torrent-title {
+  overflow: hidden;
+  max-width: 500px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

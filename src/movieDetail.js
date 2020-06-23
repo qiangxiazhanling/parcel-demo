@@ -25,38 +25,91 @@ const movieData = callback => {
   }
 }
 
+const torrent = title => {
+  fetch(`http://www.renrencili.vip/cilisousuo/${title}.html`)
+    .then(res => res.text())
+    .then(res => {
+      document.getElementById('loading').style.display = 'none'
+      const range = document.createRange();
+      const parse = range.createContextualFragment.bind(range);
+      const html = parse(res)
+      const tr = html.querySelectorAll('tbody')[0].querySelectorAll('tr')
+      tr.forEach((item, inx) => {
+        const col = item.querySelectorAll('td')
+        const url = col[0].querySelectorAll('a')[0]
+        if (titleFilter(url.textContent, title)) {
+          document.getElementById('torrent-table').insertAdjacentHTML('beforeend',
+            `<tr>
+            <td class="torrent-title">${url.textContent}</td>
+            <td>${col[1].textContent}</td> 
+           <!--  <td>${col[2].textContent}</td> -->
+           <td>
+            <div class="btn-group btn-group-sm">
+              <button type="button" class="btn btn-primary" id="cat-movie-${inx}">播放</button>
+              <button type="button" class="btn btn-info">下载</button>
+            </div>
+           </td>
+          </tr>`)
+          document.getElementById(`cat-movie-${inx}`).onclick = () => catMovie(url.href)
+        }
+      })
+    })
+}
+
+
+const titleFilter = (content, title) => {
+
+  return title !== '下一页' && content.search(title + '\\.') !== -1
+
+}
+
+const catMovie = href => {
+  fetch(href)
+    .then(res => res.text())
+    .then(res => {
+      document.getElementById('loading').style.display = 'none'
+      const range = document.createRange();
+      const parse = range.createContextualFragment.bind(range);
+      const html = parse(res)
+      const info = html.querySelectorAll('.torrent-info')[0].querySelectorAll('dd')[0].textContent
+      console.info(info)
+    })
+}
+
 movieData(item => {
+  torrent(item.title)
+  // torrent(item.original_title)
   item = {
     // 电影名
-    title:item.title,
+    title: item.title,
     // 原始名称
-    original_title:item.original_title,
+    original_title: item.original_title,
     // 发行年
-    year:item.year,
+    year: item.year,
     // 电影封面
-    cover:item.images.small,
+    cover: item.images.small,
     // 导演
-    directors:item.directors.map(it => it.name).join(' /'),
+    directors: item.directors.map(it => it.name).join(' /'),
     // 编剧
-    writers:item.writers.map(it => it.name).join(' /'),
+    writers: item.writers.map(it => it.name).join(' /'),
     // 主演
-    casts:item.casts.map(it => it.name).join(' /'),
+    casts: item.casts.map(it => it.name).join(' /'),
     // 类型
-    genres:item.genres.join(' /'),
+    genres: item.genres.join(' /'),
     // 制片国家/地区
-    countries:item.countries.join(' /'),
+    countries: item.countries.join(' /'),
     // 语言
-    languages:item.languages.join(' /'),
+    languages: item.languages.join(' /'),
     // 上映日期
-    pubdates:item.pubdates.join(' /'),
+    pubdates: item.pubdates.join(' /'),
     // 片长
-    durations:item.durations.join(' /'),
+    durations: item.durations.join(' /'),
     // 又名
-    aka:item.aka.join(' /'),
+    aka: item.aka.join(' /'),
     // 简介
-    summary:item.summary,
+    summary: item.summary,
     // 评分
-    average:item.rating.average
+    average: item.rating.average
   }
 
   //将获取到的数据添加到页面上
@@ -65,8 +118,8 @@ movieData(item => {
   document.getElementById('cover').src = item.cover
 
   // 影片信息
-  document.getElementById('info').innerHTML = 
-  ` 导演: ${item.directors} </br>
+  document.getElementById('info').innerHTML =
+    ` 导演: ${item.directors} </br>
     编剧:  </br>
     主演:  </br>
     类型:  </br>
@@ -75,7 +128,5 @@ movieData(item => {
     上映日期: </br>
     片长:  </br>
     又名:  </br>`
-  
-  // 显示隐藏标记
-  document.getElementById('loading').style.display = 'none'
+
 })
